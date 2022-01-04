@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.entertainmentModalLandscape {
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.entertainmentModalPortrait {
+    display: none;
+    object-fit: contain;
+    border-radius: 10px; 
+    margin-right: 20px;
+    position: relative;
+}
+
+.entertainmentModalTagline {
+    align-self: center;
+    justify-content: center;
+    display:flex;
+    font-size: 1.7vh
+}
+
+.entertainmentModal {
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 100%; 
+    width: 100%; 
+    overflow-y: scroll; 
+    scrollbar-width: none;
+}
+
+.entertainmentModal::-webkit-scrollbar{
+    display: none;
+}
+
+.entertainmentModalInfo {
+    padding: 10px; 
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column; 
+    font-family:"Roboto", sans-serif;
+    justify-content: space-evenly;
+    font-weight: 300;
+}
+
+.entertainmentModalTitle {
+    height: 12%; 
+    font-size: 4vw; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    
+}
+
+.entertainmentModalDescription {
+    display: flex; 
+    height: 30%; 
+    overflow-y: scroll; 
+    padding: 15px; 
+    border-radius: 20px; 
+    scrollbar-width: thin;
+    box-shadow: inset 0 0 5px #000000;
+    text-align: justify;
+}
+
+.entertainmentModalDescription::-webkit-scrollbar {
+    display: none;
+}
+
+.videoButton {
+ padding-top: 50px;
+ position: absolute;
+ margin: 5px;
+}
+
+.entertainmentModalCarousel {
+    margin-top: 20px;
+    height: 50px;
+    width: 50px;
+}
+
+.carouselContainer {
+    position: relative;
+}
+
+.carousel {
+    object-fit: contain;
+}
+
+
+@media (min-width: 835px) {
+    .entertainmentModalLandscape {
+        display: none; 
+    }
+    .entertainmentModalPortrait {
+        display: flex; 
+        width: 38%;
+    }
+    .entertainmentModal {
+        flex-direction: row; 
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    .entertainmentModalInfo {
+        width: 58%;
+        padding: 0;
+        height: 100%; 
+    }
+    .entertainmentModalTitle {
+        font-size: 3.5vw;
+        margin-top: 50px;
+    }
+    .entertainmentModalDescription {
+        font-size: 22px;
+    }
+    .entertainmentModalTagline {
+        margin-top: 55px; 
+        padding-bottom: 10px; 
+    }
+    .carouselContainer {
+        position: absolute;
+        height: 50%;
+        width: 68%;
+    }
+}
+
+

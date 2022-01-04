@@ -1,0 +1,23 @@
+.carousel {
+    height: 50px;
+    width: 50px;
+}
+
+.carouselContent {
+    display: flex; 
+    flex-direction: column;
+    padding: 10px; 
+    object-fit: contain;
+    /* position: relative; */
+}
+
+.carouselContentImg {
+    border-radius: 10px; 
+    margin-bottom: 5px; 
+    box-shadow: 0px 0px 5px black;
+    /* height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 200px;
+    background-size: contain; */
+}

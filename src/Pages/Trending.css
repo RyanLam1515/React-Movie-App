@@ -1,0 +1,7 @@
+.trending {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: left;
+    padding-bottom: 50px;
+    padding-left: 125px;
+}
