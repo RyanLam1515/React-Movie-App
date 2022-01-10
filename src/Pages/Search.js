@@ -89,6 +89,8 @@ const Search = () => {
                         media_type={tabType ? "tv": "movie"}
                         vote_average={value.vote_average}
                         overview={value.overview}
+                        value={value}
+                        type="Search"
                     />
                    ))}
             {searchTerm && 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { unavailable } from '../Config/config';
 import EntertainmentModal from './EntertainmentModal';
+import  EntertainmentControls  from './EntertainmentControls';
 
 const IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 
@@ -14,8 +15,11 @@ const getVoteClassByRate = (vote) => {
     }
 }
 
-const Entertainment = ({ key, id, title, poster_path, date, media_type, overview , vote_average}) => (
-    <EntertainmentModal className="movie" media_type={media_type} id={id} >
+const Entertainment = ({ key, id, title, poster_path, date, media_type, overview , vote_average, value, type }) => {
+
+    return (
+    <EntertainmentModal className="movie" media_type={media_type} id={id} value={value} >
+        
         <img 
             src={
                 poster_path 
@@ -33,13 +37,15 @@ const Entertainment = ({ key, id, title, poster_path, date, media_type, overview
                     {vote_average}
             </span>
             </span>
-
         <div className="movie-overview">
             <h2>Overview:</h2>
             <p>{overview}</p>
         </div>
+        { (type === "WatchList" || type === "Watched") &&
+            <EntertainmentControls type={type} value={value}></EntertainmentControls>
+        }
     </EntertainmentModal>
-
-)
+    )
+}
 
 export default Entertainment; 

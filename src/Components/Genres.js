@@ -46,7 +46,7 @@ const fetchGenres = async () => {
             <Chip color="info" label={genre.name} style={{margin: 2, backgroundColor: '#76b5c5'}} size='medium' key={genre.id} clickable onDelete={()=>handleRemove(genre)}/>
         ))}
         {genres && genres.map((genre) => (
-            <Chip label={genre.name} style={{margin: 2, backgroundColor: '#ded8cc' }} size='medium' key={genre.id} clickable onClick={()=>handleAdd(genre)} />
+            <Chip label={genre.name} style={{margin: 2, backgroundColor: '#ded8cc', fontFamily: 'Cambria' }} size='medium' key={genre.id} clickable onClick={()=>handleAdd(genre)} />
         ))}
     </div>
     );

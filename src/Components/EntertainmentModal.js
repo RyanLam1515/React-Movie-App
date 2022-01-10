@@ -8,6 +8,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { img_500, unavailable } from '../Config/config';
 import "./EntertainmentModal.css";
+import { useContext } from 'react';
+import { GlobalContext } from '../Context/GlobalState';
 import Carousel from "./Carousel";
 
 const style = {
@@ -26,10 +28,24 @@ const style = {
   padding: 4,
 };
 
-export default function EntertainmentModal( { children, media_type, id } ) {
+export default function EntertainmentModal( { children, media_type, id, value } ) {
   const [open, setOpen] = useState(false);
   const [entertainmentData, setEntertainmentData ] = useState();
   const [video, setVideo] = useState();
+
+  const { addEntertainmentToWatchList, addEntertainmentToWatched, watchList, watched } = useContext(GlobalContext);
+  
+  
+  let isEntertainmentInWatchList = watchList.find((entertainment) => entertainment.id === value.id);
+  let isEntertainmentInWatched = watched.find((entertainment) => entertainment.id === value.id);
+
+  const watchListDisabled = isEntertainmentInWatchList 
+    ? true
+    : isEntertainmentInWatched 
+    ? true 
+    : false;
+
+  const watchedDisabled = isEntertainmentInWatched ? true: false;
 
 
   const handleOpen = () => setOpen(true);
@@ -47,7 +63,6 @@ export default function EntertainmentModal( { children, media_type, id } ) {
     const {data} = await axios.get(
       `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US`
     );
-    console.log(data);
      setVideo(data.results[0]?.key);
   };
 
@@ -116,11 +131,27 @@ export default function EntertainmentModal( { children, media_type, id } ) {
                     Watch the Trailer
                   </Button>
 
+                  <Button
+                    sx={{ marginTop: 2, display: "flex" }}
+                    variant="contained"
+                    color='secondary'
+                    onClick={() => addEntertainmentToWatchList(value)}
+                    disabled={watchListDisabled}
+                  >
+                    Add to Watchlist
+                  </Button>
+
+                  <Button
+                    sx={{ marginTop: 2, display: "flex" }}
+                    variant="contained"
+                    color='secondary'
+                    onClick={() => addEntertainmentToWatched(value)}
+                    disabled={watchedDisabled}
+                  >
+                    Add to Watched
+                  </Button>
                 </div>
-
-
             </div> }
-
           </Box>
         </Fade>
       </Modal>

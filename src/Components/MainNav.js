@@ -8,11 +8,17 @@ import TvIcon from '@mui/icons-material/Tv';
 import { useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import Search from '@mui/icons-material/Search';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+import Badge from '@mui/material/Badge';
+import {GlobalContext} from '../Context/GlobalState';
+
 
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const history = useHistory();
+  const { watchList, watched } = React.useContext(GlobalContext);
 
   useEffect(() => {
     if(value === 0) history.push('/');
@@ -22,6 +28,10 @@ export default function SimpleBottomNavigation() {
       history.push('/series');
     else if (value === 3)
       history.push('/search');
+    else if (value === 4)
+      history.push('/watchlist');
+    else if (value === 5)
+      history.push('/watched');
   }, [value, history]);
 
   return (
@@ -31,6 +41,7 @@ export default function SimpleBottomNavigation() {
         value={value}
         style = {{
           backgroundColor: "#2d313a",
+          paddingTop: 10
         }}
         onChange={(event, newValue) => {
           setValue(newValue);
@@ -56,7 +67,20 @@ export default function SimpleBottomNavigation() {
           label="Search" 
           icon={<Search/>} 
         />
-
+        <BottomNavigationAction 
+          style={{ color: "white"}}
+          label="WatchList"
+          icon={<Badge badgeContent={watchList.length} color="success">
+            <FormatListBulletedOutlinedIcon/>
+            </Badge>}
+        />
+        <BottomNavigationAction 
+          style={{ color: "white"}}
+          label="Watched"
+          icon={<Badge badgeContent={watched.length} color="success">
+            <CheckBoxOutlinedIcon/>
+            </Badge>}
+        />
       </BottomNavigation>
     </Box>
   );

@@ -46,6 +46,8 @@ const Trending = () => {
                         media_type={value.media_type}
                         vote_average={value.vote_average}
                         overview={value.overview}
+                        value={value}
+                        type="Trending"
                     />
                    ))
                     }

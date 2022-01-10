@@ -53,6 +53,8 @@ const Series = () => {
                         media_type="tv"
                         vote_average={value.vote_average}
                         overview={value.overview}
+                        value={value}
+                        type="Series"
                     />
                    ))
                     }

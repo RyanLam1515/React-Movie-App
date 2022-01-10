@@ -8,7 +8,7 @@ const darkTheme=createTheme({
     },
 });
 
-const CustomPagination = ({setPage, numOfPages = 10, setSearchPage, useSearchPagination}) => {
+const CustomPagination = ({setPage, numOfPages = 10 }) => {
 
     const handlePageChange = (page) => {
         setPage(page);

@@ -7,11 +7,15 @@ import Trending from './Pages/Trending';
 import Movies from './Pages/Movies';
 import Series from './Pages/Series';
 import Search from './Pages/Search';
+import WatchList from './Pages/WatchList';
+import Watched from './Pages/Watched';
+
+import { GlobalProvider} from './Context/GlobalState';
 
 function App() {
 
     return (
-      <>
+      <GlobalProvider>
       <Header />
       <BrowserRouter>
           <Switch>
@@ -19,10 +23,12 @@ function App() {
             <Route path='/movies' component={Movies}/>
             <Route path='/series' component={Series}/>
             <Route path='/search' component={Search}/>
+            <Route path='/watchlist' component={WatchList}/>
+            <Route path='/watched' component={Watched}/>
           </Switch>
-     <SimpleBottomNavigation />
+        <SimpleBottomNavigation />
       </BrowserRouter>
-      </>
+      </GlobalProvider>
     );
   }
 
