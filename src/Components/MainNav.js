@@ -70,7 +70,7 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction 
           style={{ color: "white"}}
           label="WatchList"
-          icon={<Badge badgeContent={watchList.length} color="success">
+          icon={<Badge badgeContent={watchList.length} color="primary">
             <FormatListBulletedOutlinedIcon/>
             </Badge>}
         />

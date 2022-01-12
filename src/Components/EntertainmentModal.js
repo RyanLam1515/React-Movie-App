@@ -20,7 +20,7 @@ const style = {
   alignItems: "center",
   transform: 'translate(-50%, -50%)',
   width: "90%",
-  height: "80%",
+  height: "90%",
   backgroundColor: "#39445a",
   border: "1px solid #282c34",
   boxShadow: 24,
@@ -115,26 +115,21 @@ export default function EntertainmentModal( { children, media_type, id, value } 
 
                   <span className='entertainmentModalDescription'>{entertainmentData.overview}
                   </span>
-
-                  {/* <div className='carouselContainer'>
-                    <Carousel className='carousel' media_type={media_type} id={id}></Carousel>
-                  </div> */}
-
                   <Button 
-                    sx={{ marginTop: 2, display: "flex" }}
+                    sx={{ marginTop: 2, display: "flex"}}
                     variant="contained"
                     startIcon={<YouTubeIcon />}
-                    color="primary"
+                    color="error"
                     target="__blank"
                     href={`https://www.youtube.com/watch?v=${video}`}
                   >
                     Watch the Trailer
                   </Button>
-
+                <div className="buttonContainer">
                   <Button
-                    sx={{ marginTop: 2, display: "flex" }}
+                    sx={{ marginTop: 2, display: "inline-block", width: "100%", marginRight: 5}}
                     variant="contained"
-                    color='secondary'
+                    color="primary"
                     onClick={() => addEntertainmentToWatchList(value)}
                     disabled={watchListDisabled}
                   >
@@ -142,14 +137,20 @@ export default function EntertainmentModal( { children, media_type, id, value } 
                   </Button>
 
                   <Button
-                    sx={{ marginTop: 2, display: "flex" }}
+                    sx={{ marginTop: 2, display: 'inline-block', width: '100%'}}
                     variant="contained"
-                    color='secondary'
+                    color='success'
                     onClick={() => addEntertainmentToWatched(value)}
                     disabled={watchedDisabled}
                   >
                     Add to Watched
                   </Button>
+                  </div>
+
+                  {/* <div className='carouselContainer'>
+                    <Carousel className='carousel' media_type={media_type} id={id}></Carousel>
+                  </div> */}
+                  
                 </div>
             </div> }
           </Box>

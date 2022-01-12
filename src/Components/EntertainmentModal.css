@@ -23,7 +23,6 @@
 .entertainmentModal {
     display: flex;
     flex-direction: column; 
-    justify-content: space-between; 
     height: 100%; 
     width: 100%; 
     overflow-y: scroll; 
@@ -47,10 +46,11 @@
 
 .entertainmentModalTitle {
     height: 12%; 
-    font-size: 4vw; 
+    font-size: 3.8vw; 
     display: flex; 
     align-items: center; 
     justify-content: center;
+    margin: 15px;
     
 }
 
@@ -69,10 +69,9 @@
     display: none;
 }
 
-.videoButton {
- padding-top: 50px;
- position: absolute;
- margin: 5px;
+.buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .entertainmentModalCarousel {
@@ -82,13 +81,8 @@
 }
 
 .carouselContainer {
-    position: relative;
-}
-
-.carousel {
     object-fit: contain;
 }
-
 
 @media (min-width: 835px) {
     .entertainmentModalLandscape {
